@@ -1,0 +1,15 @@
+<?import javafx.scene.layout.HBox?><?import javax.swing.text.html.TableView?><?import javafx.scene.layout.VBox?><?import javafx.scene.control.TableColumn?><?import javafx.scene.control.TextField?><?import javafx.scene.control.Button?>// TableView.fxml (FXML layout file)
+<?xml version="1.0" encoding="UTF-8"?>
+        <?import javafx.scene.control.*?>
+        <?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.MainController" spacing="10" alignment="CENTER">
+    <TableColumn fx:id="colImie" text="Imię"></TableColumn>
+    <TableColumn fx:id="colNazwisko" text="Nazwisko"></TableColumn>
+    <HBox spacing="5">
+        <TextField fx:id="txtImie" promptText="Imię"/>
+        <TextField fx:id="txtNazwisko" promptText="Nazwisko"/>
+        <Button fx:id="btnDodaj" text="Dodaj" onAction="#handleDodaj"/>
+    </HBox>
+</VBox>
