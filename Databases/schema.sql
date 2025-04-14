@@ -1,0 +1,42 @@
+-- STUDENT TABLE
+CREATE TABLE Student (
+    id INT PRIMARY KEY IDENTITY(1,1),
+    imie NVARCHAR(100),
+    nazwisko NVARCHAR(100),
+    nr_albumu NVARCHAR(50) UNIQUE
+);
+
+-- OCENA (GRADE) TABLE
+CREATE TABLE Ocena (
+    id INT PRIMARY KEY IDENTITY(1,1),
+    id_studenta INT FOREIGN KEY REFERENCES Student(id),
+    wartosc CHAR(4),
+    przedmiot NVARCHAR(100)
+);
+
+-- TERMIN (CLASS SCHEDULE)
+CREATE TABLE Termin (
+    id INT PRIMARY KEY IDENTITY(1,1),
+    przedmiot NVARCHAR(100),
+    data_zajec DATE
+);
+
+-- GRUPA TABLE
+CREATE TABLE Grupa (
+    id INT PRIMARY KEY IDENTITY(1,1),
+    nazwa NVARCHAR(100)
+);
+
+-- LINK GROUP TO TERMIN
+CREATE TABLE Grupa_Termin (
+    id INT PRIMARY KEY IDENTITY(1,1),
+    id_grupy INT FOREIGN KEY REFERENCES Grupa(id),
+    id_terminu INT FOREIGN KEY REFERENCES Termin(id)
+);
+
+-- LINK STUDENT TO GROUP
+CREATE TABLE Student_Grupa (
+    id INT PRIMARY KEY IDENTITY(1,1),
+    id_studenta INT FOREIGN KEY REFERENCES Student(id),
+    id_grupy INT FOREIGN KEY REFERENCES Grupa(id)
+);

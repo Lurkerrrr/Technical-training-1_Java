@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="controller.MainController">
+    <top>
+        <HBox spacing="10" padding="10">
+            <Label text="Filter by surname:"/>
+            <TextField fx:id="filterField" promptText="Enter surname prefix..." HBox.hgrow="ALWAYS"/>
+            <Button text="Search" onAction="#onFilter"/>
+            <Button text="Refresh" onAction="#onRefresh"/>
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="studentTable" prefHeight="400">
+            <columns>
+                <TableColumn fx:id="firstNameColumn" text="First Name" prefWidth="150"/>
+                <TableColumn fx:id="lastNameColumn" text="Last Name" prefWidth="150"/>
+                <TableColumn fx:id="albumNumberColumn" text="Album Number" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>
